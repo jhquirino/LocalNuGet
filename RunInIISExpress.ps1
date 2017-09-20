@@ -11,11 +11,13 @@ $urlTest = "http://localhost:$argPortValue/"
 # Validate paths
 # ------------------------------------------------------------------------------
 if (!(Test-Path -Path $pathIISExpress)) {
-    Write-Host "IIS Express not found at ""$pathIISExpress""." -ForegroundColor Red
+    Write-Host "IIS Express not found at ""$pathIISExpress""." -ForegroundColor Red -NoNewline
+    Read-Host
     exit
 }
 if (!(Test-Path -Path $argPathValue)) {
-    Write-Host "Publish not found at ""$pathIISExpress""." -ForegroundColor Red
+    Write-Host "Publish not found at ""$pathIISExpress""." -ForegroundColor Red -NoNewline
+    Read-Host
     exit
 }
 # ------------------------------------------------------------------------------

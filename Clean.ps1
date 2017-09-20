@@ -1,0 +1,4 @@
+Get-ChildItem -Directory -Recurse -Path . -Include 'PublishOutput', 'bin', 'obj' | ForEach-Object -Process { Write-Host """$($_.fullname)""" -ForegroundColor Yellow -NoNewline; Remove-Item "$($_.fullname)" -Force -Recurse; Write-Host " (removed)" -ForegroundColor Red -NoNewline; Write-Host; }
+Get-Item 'packages' -ErrorAction SilentlyContinue | ForEach-Object -Process { Write-Host """$($_.fullname)""" -ForegroundColor Yellow -NoNewline; Remove-Item "$($_.fullname)" -Force -Recurse; Write-Host " (removed)" -ForegroundColor Red -NoNewline; Write-Host; }
+Write-Host "Press <enter> key to exit..." -ForegroundColor DarkYellow -NoNewline
+Read-Host
